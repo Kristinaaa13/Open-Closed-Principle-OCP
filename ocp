@@ -1,0 +1,28 @@
+# Не дотримання принципу відкритості/закритості
+class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+# Клас для обчислення площі прямокутника
+class AreaCalculator:
+    def calculate_area(self, rectangle):
+        return rectangle.width * rectangle.height
+
+# Дотримання принципу відкритості/закритості
+from abc import ABC, abstractmethod
+
+# Абстрактний клас для фігур
+class Shape(ABC):
+    @abstractmethod
+    def calculate_area(self):
+        pass
+
+# Клас для прямокутника, який розширює Shape
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def calculate_area(self):
+        return self.width * self.height
